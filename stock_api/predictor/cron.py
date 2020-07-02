@@ -16,7 +16,7 @@ import pandas as pd
 
 
 def predictionfunction():
-    symbol_details=pd.read_csv('company.csv')
+    symbol_details=pd.read_csv('/home/ubuntu/stockguru/letstry-/stock_api/sentimentor/company.csv')
 
     sym=symbol_details['symbol']
 
@@ -26,7 +26,7 @@ def predictionfunction():
 
 
 def predictor(sym):
-    model_path="/home/jay/Desktop/stocks/stock_api/all_instances/"+sym+".h5"
+    model_path="/home/ubuntu/stockguru/letstry-/stock_api/all_instances/"+sym+".h5"
     print(model_path)
     end_date=date.today()
 
@@ -63,9 +63,9 @@ def predictor(sym):
     X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))#Get the predicted scaled price
     pred_price = new_model.predict(X_test)#undo the scaling 
     pred_price = scaler.inverse_transform(pred_price)
-    
-    
-    save_to_database(sym,pred_price)
+    print(pred_price)
+    print(sym)
+    #save_to_database(sym,pred_price)
 
 def save_to_database(sym,pred_price):
 
@@ -76,6 +76,6 @@ def save_to_database(sym,pred_price):
     predictor_symbol.save(force_insert=True)
 
 
-
+predictionfunction()
 
 

@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'stock_api.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'stocks',
+            'NAME': 'stocks_new',
             'USER': 'admin',
             'PASSWORD': 'admin123',
             'HOST': 'stocktest.cvaajegaxukp.us-east-1.rds.amazonaws.com',
-            'PORT': 3306,
+            'PORT': '3306',
         }
     }
 
@@ -131,8 +131,8 @@ STATIC_URL = '/static/'
 
 
 CRONJOBS=[
-    ('0 18 * * *', 'predictor.cron.predictionfunction'),
-    ('0 19 * * *', 'sentimentor.cron.ticker_yahoo'),
-    ('0 20 * * *', 'sentimentor.cron.sentiment'),
+    ('*/1 * * * *', 'predictor.cron.predictionfunction'),
+    ('*/1 * * * *', 'sentimentor.cron.ticker_yahoo'),
+    ('*/1 * * * *', 'sentimentor.cron.sentiment'),
 ]
 

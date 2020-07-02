@@ -114,7 +114,7 @@ def sentiment():
 #This function is especially used to get the news specific to a ticker
 def ticker_yahoo():
 
-    symbol_details=pd.read_csv('company.csv')
+    symbol_details=pd.read_csv('/home/ubuntu/stockguru/letstry-/stock_api/sentimentor/company.csv')
 
     sym=symbol_details['symbol']
 
@@ -290,8 +290,6 @@ def string_convert_new(news_data):
 	return str_news
 
 
-
-sentiment()
 
 
 
